@@ -28,6 +28,11 @@ module Enumerable
     end
     self
   end
+
+  def my_inject(initial = 0, &block)
+    my_each { |val| initial = block.call(initial, val) }
+    initial
+  end
 end
 
 # You will first have to define my_each
