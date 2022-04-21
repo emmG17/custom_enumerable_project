@@ -1,5 +1,9 @@
 module Enumerable
   # Your code goes here
+  def my_all?(&block)
+    my_each { |item| return false unless block.call(item) }
+    true
+  end
 end
 
 # You will first have to define my_each
