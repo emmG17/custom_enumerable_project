@@ -33,6 +33,12 @@ module Enumerable
     my_each { |val| initial = block.call(initial, val) }
     initial
   end
+
+  def my_map(&block)
+    res = []
+    my_each { |val| res.append(block.call(val)) }
+    res
+  end
 end
 
 # You will first have to define my_each
