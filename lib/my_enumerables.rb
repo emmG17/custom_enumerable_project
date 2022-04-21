@@ -4,6 +4,11 @@ module Enumerable
     my_each { |item| return false unless block.call(item) }
     true
   end
+
+  def my_any?(&block)
+    my_each { |item| return true if block.call(item) }
+    false
+  end
 end
 
 # You will first have to define my_each
