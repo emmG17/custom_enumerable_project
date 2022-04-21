@@ -8,4 +8,8 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each(&block)
+    length.times { |i| block.call self[i] }
+    self
+  end
 end
