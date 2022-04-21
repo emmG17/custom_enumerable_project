@@ -39,6 +39,11 @@ module Enumerable
     my_each { |val| res.append(block.call(val)) }
     res
   end
+
+  def my_none?(&block)
+    my_each { |val| return false if block.call(val) }
+    true
+  end
 end
 
 # You will first have to define my_each
