@@ -44,6 +44,12 @@ module Enumerable
     my_each { |val| return false if block.call(val) }
     true
   end
+
+  def my_select(&block)
+    res = []
+    my_each { |val| res.append(val) if block.call(val) }
+    res
+  end
 end
 
 # You will first have to define my_each
