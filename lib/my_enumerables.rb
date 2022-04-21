@@ -12,12 +12,21 @@ module Enumerable
 
   def my_count(&block)
     count = 0
-    if block_given? 
+    if block_given?
       my_each { |i| count += 1 if block.call(i) }
     else
       my_each { count += 1 }
     end
     count
+  end
+
+  def my_each_with_index(&block)
+    idx = 0
+    my_each do |val|
+      block.call(val, idx)
+      idx += 1
+    end
+    self
   end
 end
 
