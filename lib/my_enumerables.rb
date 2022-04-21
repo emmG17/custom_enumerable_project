@@ -9,6 +9,16 @@ module Enumerable
     my_each { |item| return true if block.call(item) }
     false
   end
+
+  def my_count(&block)
+    count = 0
+    if block_given? 
+      my_each { |i| count += 1 if block.call(i) }
+    else
+      my_each { count += 1 }
+    end
+    count
+  end
 end
 
 # You will first have to define my_each
